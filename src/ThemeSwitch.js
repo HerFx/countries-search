@@ -8,7 +8,7 @@ import { ThemeContext } from "./ThemeProvider";
 const ThemeSwitch = () => {
     const { mode, setTheme } = useContext(ThemeContext);
     return (
-        <div>
+        <div className="switch">
         <button onClick={setTheme}>
             {mode === "light" ? "Dark Mode" : "Light Mode"}
         </button>

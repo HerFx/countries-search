@@ -73,7 +73,7 @@ function App() {
             <Col>
               <h1 style={styles.text}>Where in the world?</h1>
             </Col>
-            <Col>
+            <Col className='input-box'>
               <ThemeSwitch />
             </Col>
           </Row>
@@ -81,19 +81,27 @@ function App() {
         </nav>
         <div className="countries">
           <div className="search">
-            <input
-              type="text"
-              placeholder="Search for a country..."
-              onChange={handleChange}
-            />
-            <select name="region" id="region" onChange={handleRegion}>
-              <option value="">Filter by Region</option>
-              <option value="Africa">Africa</option>
-              <option value="Americas">Americas</option>
-              <option value="Asia">Asia</option>
-              <option value="Europe">Europe</option>
-              <option value="Oceania">Oceania</option>
-            </select>
+          <Container>
+            <Row>
+              <Col>
+                <input
+                  type="text"
+                  placeholder="Search for a country..."
+                  onChange={handleChange}
+                />
+              </Col>
+              <Col className='input-box'>
+                <select name="region" id="region" onChange={handleRegion}>
+                  <option value="">Filter by Region</option>
+                  <option value="Africa">Africa</option>
+                  <option value="Americas">Americas</option>
+                  <option value="Asia">Asia</option>
+                  <option value="Europe">Europe</option>
+                  <option value="Oceania">Oceania</option>
+                </select>
+              </Col>
+            </Row>
+          </Container>
           </div>
           <Container>
             <Row>
