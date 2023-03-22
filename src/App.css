@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #282c34;
+  color: white;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+.country-list{
+  padding: 0 10rem;
+}
+
 .App {
   text-align: center;
 }
@@ -6,6 +22,12 @@
   height: 40vmin;
   pointer-events: none;
 }
+
+/* @media screen and (max-width: 1200px) {
+  .country-list{
+    flex-flow: column;
+  }
+} */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
