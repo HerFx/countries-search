@@ -14,7 +14,8 @@ import Col from 'react-bootstrap/Col';
 const getStyle = (mode) => {
   return {
     app: {
-      backgroundColor: theme[mode].backgroundColor
+      backgroundColor: theme[mode].backgroundColor,
+      minHeight: "100vh",
     },
     text: {
       color: theme[mode].color
@@ -22,6 +23,10 @@ const getStyle = (mode) => {
     nav:{
       backgroundColor: mode === "light" ? "#ffffff" : "hsl(209, 23%, 22%)",
       height: "10vh",
+    },
+    form: {
+      backgroundColor: mode === "light" ? "#ffffff" : "hsl(209, 23%, 22%)",
+      color: theme[mode].color,
     }
   };
 };
@@ -70,11 +75,11 @@ function App() {
         <nav style={styles.nav}>
         <Container>
           <Row>
-            <Col>
+            <Col xs={6}>
               <h1 style={styles.text}>Where in the world?</h1>
             </Col>
-            <Col className='input-box'>
-              <ThemeSwitch />
+            <Col xs={6} className='input-box'>
+              <ThemeSwitch/>
             </Col>
           </Row>
           </Container>
@@ -85,19 +90,20 @@ function App() {
             <Row>
               <Col>
                 <input
+                  style={styles.form}
                   type="text"
                   placeholder="Search for a country..."
                   onChange={handleChange}
                 />
               </Col>
               <Col className='input-box'>
-                <select name="region" id="region" onChange={handleRegion}>
-                  <option value="">Filter by Region</option>
-                  <option value="Africa">Africa</option>
-                  <option value="Americas">Americas</option>
-                  <option value="Asia">Asia</option>
-                  <option value="Europe">Europe</option>
-                  <option value="Oceania">Oceania</option>
+                <select name="region" id="region" onChange={handleRegion} style={styles.form}>
+                  <option style={styles.text} value="">Filter by Region</option>
+                  <option style={styles.text} value="Africa">Africa</option>
+                  <option style={styles.text} value="Americas">Americas</option>
+                  <option style={styles.text} value="Asia">Asia</option>
+                  <option style={styles.text} value="Europe">Europe</option>
+                  <option style={styles.text} value="Oceania">Oceania</option>
                 </select>
               </Col>
             </Row>
@@ -106,7 +112,7 @@ function App() {
           <Container>
             <Row>
               {filtered.map((country) => (
-                <Col key={country.name} xs={12} sm={6} md={4} lg={3} >
+                <Col key={country.name} xs={12} sm={6} md={4} lg={3}>
                   <Country
                     name={country.name}
                     flag={country.flag}

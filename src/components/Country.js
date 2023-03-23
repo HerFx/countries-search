@@ -1,20 +1,39 @@
 import React from 'react'
 import './Country.css'
+import {ThemeContext} from '../ThemeProvider';
+import {theme} from '../theme';
+import {useContext} from 'react';
+
+
+const getStyle = (mode) => {
+  return {
+    countryInfo: {
+      backgroundColor: mode === "light" ? "#ffffff" : "hsl(209, 23%, 22%)",
+      color: theme[mode].color
+    },
+  };
+};
 
 const Country = (props) => {
+  const {mode} = useContext(ThemeContext);
+  const styles = getStyle(mode);
+
+
+
   return (
     <div className='country-box'>
         <div className='country-img'>
             <img src={props.flag} alt={props.name} />
         </div>
-        <div className='country-info'>
+        <div className='country-info' style={styles.countryInfo}>
             <h1>{props.name}</h1>
-            <p>Population: {props.population}</p>
-            <p>Region: {props.region}</p>
-            <p>Capital: {props.capital}</p>
+            <p>Population: <span>{props.population}</span></p>
+            <p>Region: <span>{props.region}</span></p>
+            <p>Capital: <span>{props.capital}</span></p>
         </div>
     </div>
   )
+  
 }
 
 export default Country

@@ -1,16 +1,16 @@
  .country-box{
     width: 100%;
-    height: 80%;
+    height: 90%;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
     border-radius: 10px;
-    overflow: hidden;;
+    overflow: hidden;
+    margin-bottom: 6rem;
 }
 
 
 .country-img{
     width: 100%;
-    height: 45%;
-    border-bottom: 1px solid #ccc;
+    height: 55%;
     border-radius: 10px 10px 0 0;
 } 
 
@@ -18,14 +18,30 @@ img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-bottom: 1px solid #ccc;
 }
 
 .country-info{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 55%;
+    height: 45%;
     padding: 1rem;
+}
+
+
+.country-info h1{
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.country-info p{
+    margin: 0;
+    font-size:14px;
+    font-weight: 600;
+}
+
+.country-info span{
+    font-weight: 300;
 }
 
