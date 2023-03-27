@@ -3,6 +3,7 @@ import './Country.css'
 import {ThemeContext} from '../ThemeProvider';
 import {theme} from '../theme';
 import {useContext} from 'react';
+import {Link} from 'react-router-dom';
 
 
 const getStyle = (mode) => {
@@ -22,6 +23,7 @@ const Country = (props) => {
 
   return (
     <div className='country-box'>
+        <Link to={`/country/${props.name}`}>
         <div className='country-img'>
             <img src={props.flag} alt={props.name} />
         </div>
@@ -31,6 +33,7 @@ const Country = (props) => {
             <p>Region: <span>{props.region}</span></p>
             <p>Capital: <span>{props.capital}</span></p>
         </div>
+        </Link>
     </div>
   )
   

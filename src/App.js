@@ -10,6 +10,8 @@ import data from './data.json';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import CountryDetails from './components/CountryDetails';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 const getStyle = (mode) => {
   return {
@@ -109,21 +111,32 @@ function App() {
             </Row>
           </Container>
           </div>
-          <Container>
-            <Row>
+          <Router>
+            <Routes>
               {filtered.map((country) => (
-                <Col key={country.name} xs={12} sm={6} md={4} lg={3}>
-                  <Country
-                    name={country.name}
-                    flag={country.flag}
-                    population={country.population}
-                    region={country.region}
-                    capital={country.capital}
-                  />
-                </Col>
+                <Route path={`/country/${country.name}`} element={<CountryDetails country={country} />} />
               ))}
-            </Row>
-          </Container>
+
+              <Route path="/" element={
+                <Container>
+                  <Row>
+                    {filtered.map((country) => (
+                      <Col xs={12} md={6} lg={4} xl={3}>
+                        <Country
+                          key={country.name}
+                          name={country.name}
+                          flag={country.flag}
+                          population={country.population}
+                          region={country.region}
+                          capital={country.capital}
+                        />
+                      </Col>
+                    ))}
+                  </Row>
+                </Container>
+              } />
+            </Routes>
+          </Router>
           </div>
     </div>
   );
