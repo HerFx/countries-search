@@ -12,6 +12,9 @@ const getStyle = (mode) => {
       backgroundColor: mode === "light" ? "#ffffff" : "hsl(209, 23%, 22%)",
       color: theme[mode].color
     },
+    link: {
+      textDecoration: "none",
+    }
   };
 };
 
@@ -23,7 +26,7 @@ const Country = (props) => {
 
   return (
     <div className='country-box'>
-        <Link to={`/country/${props.name}`}>
+        <Link to={`/country/${props.name}`} style={styles.link}>
         <div className='country-img'>
             <img src={props.flag} alt={props.name} />
         </div>

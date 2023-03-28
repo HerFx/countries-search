@@ -13,6 +13,7 @@ import Col from 'react-bootstrap/Col';
 import CountryDetails from './components/CountryDetails';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
+
 const getStyle = (mode) => {
   return {
     app: {
@@ -43,6 +44,7 @@ function App() {
   const [region, setRegion] = useState("");
   const [filtered, setFiltered] = useState([]);
 
+
   useEffect(() => {
     setCountries(data);
   }, []);
@@ -70,6 +72,7 @@ function App() {
       )
     );
   }, [region, countries]);
+  
 
 
   return (
@@ -86,8 +89,7 @@ function App() {
           </Row>
           </Container>
         </nav>
-        <div className="countries">
-          <div className="search">
+        <div className="search" >
           <Container>
             <Row>
               <Col>
@@ -111,10 +113,11 @@ function App() {
             </Row>
           </Container>
           </div>
+        <div className="countries">
           <Router>
             <Routes>
               {filtered.map((country) => (
-                <Route path={`/country/${country.name}`} element={<CountryDetails country={country} />} />
+                <Route path={`/country/${country.name}`} element={<CountryDetails country={country}/>}/>
               ))}
 
               <Route path="/" element={
@@ -136,7 +139,7 @@ function App() {
                 </Container>
               } />
             </Routes>
-          </Router>
+          </Router> 
           </div>
     </div>
   );

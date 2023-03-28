@@ -59,6 +59,9 @@ select option{
   margin: auto;
 
 }
+.btn{
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
 
 .App {
   text-align: center;
@@ -67,6 +70,30 @@ select option{
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.details{
+  width: 100%;
+  height: calc(100vh - 14vh);
+  position: absolute;
+  top: 14vh;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 1;
+}
+
+.details-text{
+  text-align: center;
+}
+
+.arrow{
+  left: 0;
+  font-size: 1.5rem;
+  padding-right: 5px;
+}
+
+.details-box{
+  margin-top: 10%;
 }
 
 /* @media screen and (max-width: 1200px) {
